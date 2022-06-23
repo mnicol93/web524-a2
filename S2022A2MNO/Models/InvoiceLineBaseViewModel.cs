@@ -14,8 +14,5 @@ namespace S2022A2MNO.Models
         public int TrackId { get; set; }
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
-        public virtual Invoice Invoice { get; set; }
-        public virtual Track Track { get; set; }
-
     }
 }

@@ -14,5 +14,10 @@ namespace S2022A2MNO.Models
         [StringLength(150)]
         public string TrackComposer{ get; set; }
         [StringLength(150)]
+        public string TrackAlbumTitle { get; set; }
+        [StringLength(150)]
+        public string TrackAlbumArtistName { get; set; }
+        [StringLength(150)]
+        public string TrackMediaTypeName { get; set; }
     }
 }

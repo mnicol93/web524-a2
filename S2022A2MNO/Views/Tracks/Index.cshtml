@@ -68,38 +68,33 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var track in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(i => track.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AlbumId)
+                @Html.DisplayFor(i => track.AlbumId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MediaTypeId)
+                @Html.DisplayFor(i => track.MediaTypeId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GenreId)
+                @Html.DisplayFor(i => track.GenreId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Composer)
+                @Html.DisplayFor(i => track.Composer)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Milliseconds)
+                @Html.DisplayFor(i => track.Milliseconds)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Bytes)
+                @Html.DisplayFor(i => track.Bytes)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UnitPrice)
+                @Html.DisplayFor(i => track.UnitPrice)
             </td>
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TrackId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TrackId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TrackId })
-            </td>*@
         </tr>
     }
 

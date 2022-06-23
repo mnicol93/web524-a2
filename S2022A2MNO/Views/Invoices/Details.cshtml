@@ -75,26 +75,29 @@
             <th>
                 Item Total
             </th>
-            @foreach(var item in Model.InvoiceLines) { 
+            @foreach(var track in Model.InvoiceLines) {
                 <tr>
                     <td>
-                        @Html.DisplayFor(i => item.InvoiceLineId)
+                        @Html.DisplayFor(i => track.InvoiceLineId)
                     </td>
                     <td>
-                        @Html.DisplayFor(i => item.TrackId)
+                        @Html.DisplayFor(i => track.TrackId)
                     </td>
                     <td>
-                        @item.TrackName<br />
-                        Composer(s): @item.TrackComposer
+                        @track.TrackName<br />
+                        by @track.TrackAlbumArtistName <br />
+                        Album: @track.TrackAlbumTitle<br />
+                        Composer(s): @track.TrackComposer<br />
+                        Format: @track.TrackMediaTypeName
                     </td>
                     <td>
-                        @Html.DisplayFor(i => item.UnitPrice)
+                        @Html.DisplayFor(i => track.UnitPrice)
                     </td>
                     <td>
-                        @Html.DisplayFor(i => item.Quantity)
+                        @Html.DisplayFor(i => track.Quantity)
                     </td>
                     <td>
-                        @(item.UnitPrice*item.Quantity)
+                        @(track.UnitPrice*track.Quantity)
                     </td>
                 </tr>
             }

@@ -109,7 +109,8 @@ namespace S2022A2MNO.Controllers
         }
         public InvoiceWithDetailViewModel InvoiceGetByIdWithDetail(int? id) {
             var query = ds.Invoices.Include("Customer.Employee")
-                .Include("InvoiceLines").Include("InvoiceLines.Track")
+                .Include("InvoiceLines").Include("InvoiceLines.Track.Album.Artist")
+                .Include("InvoiceLines.Track.MediaType")
                 .SingleOrDefault(q => q.InvoiceId == id);
 
             if (query == null) return null;
