@@ -64,27 +64,37 @@
                 Track ID
             </th>
             <th>
+                Track Info
+            </th>
+            <th>
                 Unit price
             </th>
             <th>
                 Quantity
             </th>
             <th>
-
+                Item Total
             </th>
             @foreach(var item in Model.InvoiceLines) { 
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.InvoiceLineId)
+                        @Html.DisplayFor(i => item.InvoiceLineId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.TrackId)
+                        @Html.DisplayFor(i => item.TrackId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.UnitPrice)
+                        @item.TrackName<br />
+                        Composer(s): @item.TrackComposer
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Quantity)
+                        @Html.DisplayFor(i => item.UnitPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(i => item.Quantity)
+                    </td>
+                    <td>
+                        @(item.UnitPrice*item.Quantity)
                     </td>
                 </tr>
             }
