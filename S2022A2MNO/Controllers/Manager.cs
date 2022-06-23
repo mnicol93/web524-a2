@@ -36,6 +36,7 @@ namespace S2022A2MNO.Controllers
                 // Define the mappings below, for example...
                 // cfg.CreateMap<SourceType, DestinationType>();
                 // cfg.CreateMap<Product, ProductBaseViewModel>();
+                cfg.CreateMap<Track, TrackBaseViewModel>();
 
             });
 
