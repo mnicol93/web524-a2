@@ -10,81 +10,27 @@ namespace S2022A2MNO.Controllers
     {
         private Manager m = new Manager();
         // GET: Tracks
-        public ActionResult Index()
-        {
-            return View();
+        public ActionResult Index() {
+            // Fetch collection
+            var t = m.TrackGetAll();
+            // Pass the collection to the view
+            return View(t);
         }
-
-        // GET: Tracks/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+        public ActionResult AllRockMetal() {
+            var allRock = m.TrackGetAllRockMetal();
+            return View("Index", allRock);
         }
-
-        // GET: Tracks/Create
-        public ActionResult Create()
-        {
-            return View();
+        public ActionResult AllTyler() {
+            var allT = m.TrackGetAllTylerVallance();
+            return View("Index", allT);
         }
-
-        // POST: Tracks/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        public ActionResult Longest() {
+            var longest = m.TrackGetAllTop50Longest();
+            return View("Index", longest);
         }
-
-        // GET: Tracks/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Tracks/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Tracks/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Tracks/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        public ActionResult Smallest() {
+            var smallest = m.TrackGetAllTop50Smallest();
+            return View("Index", smallest);
         }
     }
 }
