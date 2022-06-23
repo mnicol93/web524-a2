@@ -54,6 +54,42 @@
             @Model.BillingPostalCode
         </dd> 
     </dl>
+    <table class="table table-striped">
+        <caption>Line Item Detail</caption>
+        <tr>
+            <th>
+                Invoice line ID
+            </th>
+            <th>
+                Track ID
+            </th>
+            <th>
+                Unit price
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+
+            </th>
+            @foreach(var item in Model.InvoiceLines) { 
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceLineId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrackId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                </tr>
+            }
+        </tr>
+    </table>
 </div>
 <p>
     @Html.ActionLink("Back to List", "Index")

@@ -39,6 +39,7 @@ namespace S2022A2MNO.Controllers
                 cfg.CreateMap<Track, TrackBaseViewModel>();
                 cfg.CreateMap<Invoice, InvoiceBaseViewModel>();
                 cfg.CreateMap<Invoice, InvoiceWithDetailViewModel>();
+                cfg.CreateMap<InvoiceLine, InvoiceLineBaseViewModel>();
             });
 
             mapper = config.CreateMapper();
@@ -107,6 +108,7 @@ namespace S2022A2MNO.Controllers
         }
         public InvoiceWithDetailViewModel InvoiceGetByIdWithDetail(int? id) {
             var query = ds.Invoices.Include("Customer.Employee")
+                .Include("InvoiceLines")
                 .SingleOrDefault(q => q.InvoiceId == id);
 
             if (query == null) return null;

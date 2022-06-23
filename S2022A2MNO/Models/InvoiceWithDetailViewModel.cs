@@ -12,6 +12,6 @@ namespace S2022A2MNO.Models
         public string CustomerState { get; set; }
         public string CustomerEmployeeFirstName { get; set; }
         public string CustomerEmployeeLastName { get; set; }
-        //public IEnumerable<InvoiceLineWithDetailViewModel> InvoiceLines { get; set; }
+        public IEnumerable<InvoiceLineBaseViewModel> InvoiceLines { get; set; }
     }
 }
