@@ -37,7 +37,8 @@ namespace S2022A2MNO.Controllers
                 // cfg.CreateMap<SourceType, DestinationType>();
                 // cfg.CreateMap<Product, ProductBaseViewModel>();
                 cfg.CreateMap<Track, TrackBaseViewModel>();
-
+                cfg.CreateMap<Invoice, InvoiceBaseViewModel>();
+                cfg.CreateMap<Invoice, InvoiceWithDetailViewModel>();
             });
 
             mapper = config.CreateMapper();
@@ -90,6 +91,27 @@ namespace S2022A2MNO.Controllers
 
             return mapper.Map<IEnumerable<Track>,
                 IEnumerable<TrackBaseViewModel>>(query);
+        }
+        public IEnumerable<InvoiceBaseViewModel> InvoiceGetAll() {
+            var query = ds.Invoices.OrderByDescending(q => q.InvoiceDate);
+
+            return mapper.Map<IEnumerable<Invoice>,
+                IEnumerable<InvoiceBaseViewModel>>(query);
+        }
+        public InvoiceBaseViewModel InvoiceGetById(int? id) {
+            var query = ds.Invoices.Find(id);
+
+            if (query == null) return null;
+
+            return mapper.Map<Invoice, InvoiceBaseViewModel>(query);
+        }
+        public InvoiceWithDetailViewModel InvoiceGetByIdWithDetail(int? id) {
+            var query = ds.Invoices.Include("Customer.Employee")
+                .SingleOrDefault(q => q.InvoiceId == id);
+
+            if (query == null) return null;
+
+            return mapper.Map<Invoice, InvoiceWithDetailViewModel>(query);
         }
     }
 }
